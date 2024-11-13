@@ -1,10 +1,3 @@
-#!/bin/bash
-
-# Exit immediately if a command exits with a non-zero status
-set -e
-
-# Generate README.md content
-cat <<EOL > README.md
 # Traffic Congestion Prediction API
 
 This project is an end-to-end Intelligent Transportation System (ITS) application that predicts traffic congestion levels based on vehicle count, weather, and road conditions. The API is built with Flask, and the model uses scikit-learn's Random Forest Classifier for predictions.
