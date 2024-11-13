@@ -1,0 +1,17 @@
+date,time,vehicle_count,weather,road_conditions,congestion_level
+2024-11-01,08:00,150,sunny,clear,low
+2024-11-01,08:15,170,rainy,wet,medium
+2024-11-01,08:30,200,sunny,clear,medium
+2024-11-01,08:45,220,foggy,clear,high
+2024-11-01,09:00,250,sunny,clear,high
+2024-11-01,09:15,180,rainy,wet,medium
+2024-11-01,09:30,210,foggy,clear,high
+2024-11-01,09:45,240,sunny,clear,high
+2024-11-01,10:00,160,sunny,clear,low
+2024-11-01,10:15,180,rainy,wet,medium
+2024-11-01,10:30,190,foggy,clear,medium
+2024-11-01,10:45,220,sunny,clear,high
+2024-11-01,11:00,250,rainy,wet,high
+2024-11-01,11:15,230,foggy,clear,high
+2024-11-01,11:30,210,sunny,clear,medium
+2024-11-01,11:45,200,rainy,wet,medium
