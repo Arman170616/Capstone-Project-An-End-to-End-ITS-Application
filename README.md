@@ -14,125 +14,101 @@ This project is an end-to-end Intelligent Transportation System (ITS) applicatio
 
 ## Setup and Installation
 
-1. **Clone the repository**:
-   \`\`\`bash
+1. **Clone the Repository**:
+   ```bash
    # Replace 'your-username' with your GitHub username or your repo URL
    git clone https://github.com/your-username/traffic-congestion-predictor.git
    cd traffic-congestion-predictor
-   \`\`\`
+Set Up a Virtual Environment:
 
-2. **Set up a virtual environment**:
-   \`\`\`bash
-   python -m venv env
-   source env/bin/activate  # On Windows use \`env\Scripts\activate\`
-   \`\`\`
+bash
+Copy code
+python -m venv env
+source env/bin/activate  # On Windows use `env\Scripts\activate`
+Install Required Packages:
 
-3. **Install required packages**:
-   \`\`\`bash
-   pip install -r requirements.txt
-   \`\`\`
+bash
+Copy code
+pip install -r requirements.txt
+Project Structure: Ensure your project has the following structure:
 
-4. **Folder Structure**:
-   Ensure your project has the following structure:
+bash
+Copy code
+├── app.py                  # Flask application for API
+├── train_model.py          # Model training script
+├── traffic_data.csv        # Dataset for training (sample traffic data)
+├── models/
+│   ├── traffic_congestion_model.pkl  # Trained model
+│   └── scaler.pkl                    # Scaler for data preprocessing
+├── requirements.txt       # List of required Python packages
+└── README.md              # Project documentation
+Model Training
+To train the model, ensure your dataset traffic_data.csv includes the necessary fields. Run train_model.py to train and save the model:
 
-   \`\`\`
-   ├── app.py                  # Flask app
-   ├── train_model.py          # Model training script
-   ├── traffic_data.csv        # Sample traffic data file for training
-   ├── models/
-   │   ├── traffic_congestion_model.pkl  # Trained model
-   │   └── scaler.pkl                    # Scaler for input data
-   ├── requirements.txt       # Required Python packages
-   └── README.md              # Project documentation
-   \`\`\`
+Dataset Format: traffic_data.csv should contain the following columns:
 
-## Model Training
+vehicle_count
+weather (0 for sunny, 1 for rainy, 2 for foggy)
+road_conditions (0 for clear, 1 for wet)
+congestion_level (target variable: low, medium, or high)
+Run the Training Script:
 
-To retrain the model, use the \`train_model.py\` script:
+bash
+Copy code
+python train_model.py
+This will generate traffic_congestion_model.pkl and scaler.pkl in the models/ directory.
 
-1. Prepare a CSV file named \`traffic_data.csv\` with the following columns:
-   - \`vehicle_count\`
-   - \`weather\` (encoded as \`0\` for sunny, \`1\` for rainy, \`2\` for foggy)
-   - \`road_conditions\` (encoded as \`0\` for clear, \`1\` for wet)
-   - \`congestion_level\` (target variable: \`low\`, \`medium\`, or \`high\`)
+Running the API
+To start the Flask API server:
 
-2. Run the training script:
-   \`\`\`bash
-   python train_model.py
-   \`\`\`
-
-   This will save the trained model and scaler in the \`models/\` directory.
-
-## Running the API
-
-To start the Flask API, run:
-
-\`\`\`bash
+bash
+Copy code
 python app.py
-\`\`\`
+The API will be accessible at http://127.0.0.1:5000/.
 
-The API is available at \`http://127.0.0.1:5000/\`.
+API Usage
+Endpoint
+POST /predict
 
-## API Usage
-
-### Endpoint
-
-\`POST /predict\`
-
-### Request Format
-
+Request Format
 Send a JSON payload with the following keys:
 
-- \`vehicle_count\`: (integer) The number of vehicles.
-- \`weather\`: (integer) \`0\` for sunny, \`1\` for rainy, \`2\` for foggy.
-- \`road_conditions\`: (integer) \`0\` for clear, \`1\` for wet.
-
+vehicle_count (integer): Number of vehicles.
+weather (integer): 0 for sunny, 1 for rainy, 2 for foggy.
+road_conditions (integer): 0 for clear, 1 for wet.
 Example request:
 
-\`\`\`json
+json
+Copy code
 {
     "vehicle_count": 50,
     "weather": 1,
     "road_conditions": 0
 }
-\`\`\`
+Response Format
+The API responds with JSON containing the congestion level:
 
-### Response Format
-
-The API responds with JSON containing the predicted congestion level:
-
-- \`0\` for low congestion
-- \`1\` for medium congestion
-- \`2\` for high congestion
-
+0 for low congestion
+1 for medium congestion
+2 for high congestion
 Example response:
 
-\`\`\`json
+json
+Copy code
 {
     "congestion_level": 1
 }
-\`\`\`
+Dependencies
+Install dependencies listed in requirements.txt:
 
-## Dependencies
-
-Install all dependencies listed in \`requirements.txt\`:
-
-\`\`\`bash
+bash
+Copy code
 pip install -r requirements.txt
-\`\`\`
-
-## License
-
+License
 This project is licensed under the MIT License.
 
-## Contact
-
+Contact
 For any questions or issues, please contact:
 
-**M M Arman Hossain**  
-Email: [armanicepust9@gmail.com](mailto:armanicepust9@gmail.com)
-
-EOL
-
-# Notify user of successful README creation
-echo "README.md has been successfully created! Feel free to edit further as needed."
+M M Arman Hossain
+Email: armanicepust9@gmail.com
