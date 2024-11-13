@@ -16,61 +16,38 @@ This project is an end-to-end Intelligent Transportation System (ITS) applicatio
 
 ## Setup and Installation
 
-1. **Clone the Repository**:
-   \`\`\`bash
-   # Replace 'your-username' with your GitHub username or your repo URL
-   git clone https://github.com/your-username/traffic-congestion-predictor.git
-   cd traffic-congestion-predictor
-   \`\`\`
+1. **Clone the Repository**
 
-2. **Set Up a Virtual Environment**:
-   \`\`\`bash
-   python -m venv env
-   source env/bin/activate  # On Windows use \`env\\Scripts\\activate\`
-   \`\`\`
+2. **Set Up a Virtual Environment**
 
-3. **Install Required Packages**:
-   \`\`\`bash
-   pip install -r requirements.txt
-   \`\`\`
+3. **Install Required Packages**
 
 4. **Project Structure**:
    Ensure your project has the following structure:
 
-   \`\`\`
-   ├── app.py                  # Flask application for API
-   ├── train_model.py          # Model training script
-   ├── traffic_data.csv        # Dataset for training (sample traffic data)
-   ├── models/
-   │   ├── traffic_congestion_model.pkl  # Trained model
-   │   └── scaler.pkl                    # Scaler for data preprocessing
-   ├── requirements.txt       # List of required Python packages
-   └── README.md              # Project documentation
-   \`\`\`
+   
+         ├── app.py                  # Flask application for API
+         ├── train_model.py          # Model training script
+         ├── traffic_data.csv        # Dataset for training (sample traffic data)
+         ├── models/
+         │   ├── traffic_congestion_model.pkl  # Trained model
+         │   └── scaler.pkl                    # Scaler for data preprocessing
+         ├── requirements.txt       # List of required Python packages
+         └── README.md              # Project documentation
+   
 
 ## Model Training
 
 To train the model, ensure your dataset \`traffic_data.csv\` includes the necessary fields. Run \`train_model.py\` to train and save the model:
 
-1. **Dataset Format**: \`traffic_data.csv\` should contain the following columns:
-   - \`vehicle_count\`
-   - \`weather\` (0 for sunny, 1 for rainy, 2 for foggy)
-   - \`road_conditions\` (0 for clear, 1 for wet)
-   - \`congestion_level\` (target variable: \`low\`, \`medium\`, or \`high\`)
-
-2. **Run the Training Script**:
-   \`\`\`bash
-   python train_model.py
-   \`\`\`
-   This will generate \`traffic_congestion_model.pkl\` and \`scaler.pkl\` in the \`models/\` directory.
-
+1. **Dataset Format**
+2. **Run the Training Script**
+   
 ## Running the API
 
 To start the Flask API server:
+   python app.py
 
-\`\`\`bash
-python app.py
-\`\`\`
 
 The API will be accessible at \`http://127.0.0.1:5000/\`.
 
@@ -132,6 +109,4 @@ For any questions or issues, please contact:
 
 **M M Arman Hossain**  
 Email: [armanicepust9@gmail.com](mailto:armanicepust9@gmail.com)
-" > README.md
 
-echo "README.md file has been created!"
