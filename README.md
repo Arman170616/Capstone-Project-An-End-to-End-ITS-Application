@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Exit immediately if a command exits with a non-zero status
+set -e
+
+# Generate README.md content
+cat <<EOL > README.md
 # Traffic Congestion Prediction API
 
 This project is an end-to-end Intelligent Transportation System (ITS) application that predicts traffic congestion levels based on vehicle count, weather, and road conditions. The API is built with Flask, and the model uses scikit-learn's Random Forest Classifier for predictions.
@@ -18,6 +23,7 @@ This project is an end-to-end Intelligent Transportation System (ITS) applicatio
 
 1. **Clone the repository**:
    \`\`\`bash
+   # Replace 'your-username' with your GitHub username or your repo URL
    git clone https://github.com/your-username/traffic-congestion-predictor.git
    cd traffic-congestion-predictor
    \`\`\`
@@ -34,7 +40,7 @@ This project is an end-to-end Intelligent Transportation System (ITS) applicatio
    \`\`\`
 
 4. **Folder Structure**:
-   Make sure your project has the following structure:
+   Ensure your project has the following structure:
 
    \`\`\`
    ├── app.py                  # Flask app
@@ -49,13 +55,13 @@ This project is an end-to-end Intelligent Transportation System (ITS) applicatio
 
 ## Model Training
 
-If you need to retrain the model, you can use the \`train_model.py\` script.
+To retrain the model, use the \`train_model.py\` script:
 
-1. Ensure you have a CSV file named \`traffic_data.csv\` with the following columns:
+1. Prepare a CSV file named \`traffic_data.csv\` with the following columns:
    - \`vehicle_count\`
    - \`weather\` (encoded as \`0\` for sunny, \`1\` for rainy, \`2\` for foggy)
    - \`road_conditions\` (encoded as \`0\` for clear, \`1\` for wet)
-   - \`congestion_level\` (target variable, categorical: \`low\`, \`medium\`, or \`high\`)
+   - \`congestion_level\` (target variable: \`low\`, \`medium\`, or \`high\`)
 
 2. Run the training script:
    \`\`\`bash
@@ -66,13 +72,13 @@ If you need to retrain the model, you can use the \`train_model.py\` script.
 
 ## Running the API
 
-To start the Flask API, run the following command:
+To start the Flask API, run:
 
 \`\`\`bash
 python app.py
 \`\`\`
 
-The API will be accessible at \`http://127.0.0.1:5000/\`.
+The API is available at \`http://127.0.0.1:5000/\`.
 
 ## API Usage
 
@@ -100,7 +106,7 @@ Example request:
 
 ### Response Format
 
-The API will respond with a JSON object containing the predicted congestion level as a numeric value:
+The API responds with JSON containing the predicted congestion level:
 
 - \`0\` for low congestion
 - \`1\` for medium congestion
@@ -116,7 +122,7 @@ Example response:
 
 ## Dependencies
 
-All dependencies are listed in \`requirements.txt\`. You can install them with:
+Install all dependencies listed in \`requirements.txt\`:
 
 \`\`\`bash
 pip install -r requirements.txt
@@ -136,4 +142,4 @@ Email: [armanicepust9@gmail.com](mailto:armanicepust9@gmail.com)
 EOL
 
 # Notify user of successful README creation
-echo "README.md has been successfully created!"
+echo "README.md has been successfully created! Feel free to edit further as needed."
